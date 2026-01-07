@@ -15,6 +15,7 @@ class CustomerRepositoryTest {
     @TestTransaction
     void shouldCreateAndFindById(){
         Customer customer = new Customer("Yohan", "Alard");
+        customer.setEmail("yalard@gmail.com");
         customerRepository.persist(customer);
         assertNotNull(customer.getId());
 

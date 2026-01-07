@@ -50,4 +50,11 @@ public class Artist {
                 ", createddate=" + createddate +
                 '}';
     }
+    public Artist(){
+
+    }
+    public Artist(String name, String bio) {
+        this.name = name;
+        this.bio = bio;
+    }
 }

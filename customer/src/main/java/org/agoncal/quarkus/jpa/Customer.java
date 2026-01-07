@@ -1,8 +1,6 @@
 package org.agoncal.quarkus.jpa;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.Instant;
 
@@ -25,20 +23,25 @@ import java.time.Instant;
  * }
  */
 @Entity
+@Table(name = "t_customers")
 public class Customer {
     @Id
     @GeneratedValue
     private Long id;
 
+    @Column(name = "first_name", length = 50, nullable = false)
     private String firstName;
-    private String lastNAme;
+    @Column(name = "last_name", length = 50, nullable = false)
+    private String lastName;
+    @Column(name = "e_mail", nullable = false)
     private String email;
-
+    @Column(name = "created_date", nullable = false)
+    private Instant creationDate = Instant.now();
     public Customer(){
     }
-    public Customer(String firstName, String lastNAme) {
+    public Customer(String firstName, String lastName) {
         this.firstName = firstName;
-        this.lastNAme = lastNAme;
+        this.lastName = lastName;
     }
 
     public Long getId() {
@@ -57,12 +60,12 @@ public class Customer {
         this.firstName = firstName;
     }
 
-    public String getLastNAme() {
-        return lastNAme;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastNAme(String lastNAme) {
-        this.lastNAme = lastNAme;
+    public void setLastName(String lastNAme) {
+        this.lastName = lastNAme;
     }
 
     public String getEmail() {
@@ -81,6 +84,6 @@ public class Customer {
         this.creationDate = creationDate;
     }
 
-    private Instant creationDate = Instant.now();
+
 
 }
