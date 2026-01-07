@@ -1,0 +1,16 @@
+#Usefull commande
+lancer les tests sur les sous modules de facon parrallélisé.
+
+L’option -T active le build parallèle.
+```
+mvn -T 1C test
+```
+1C signifie :
+
+1 thread par cœur CPU
+
+Si ta machine a :
+
+4 cœurs → 4 threads
+
+8 cœurs → 8 threads
